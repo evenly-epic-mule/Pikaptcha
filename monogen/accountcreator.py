@@ -37,9 +37,9 @@ def _random_password():
 
 def _random_birthday():
     start = datetime(1970, 1, 1)
-    end = datetime(2000, 12, 31)
+    end = datetime.now() - timedelta(days=18*366)
     diff = end - start
-    random_duration = randint(0, diff.total_seconds())
+    random_duration = randint(0, int(diff.total_seconds()))
     birthday = start + timedelta(seconds=random_duration)
     return birthday.strftime('%Y-%m-%d')
 
